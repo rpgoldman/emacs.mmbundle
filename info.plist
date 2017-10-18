@@ -3,12 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>contactName</key>
-	<string>Alexandru Nedelcu</string>
+	<string>Robert P. Goldman</string>
+        <key>contactEmailRot13</key>
+        <string>ectbyqzna@fvsg.arg</string>
 	<key>description</key>
-	<string>Emacs editor integration.</string>
+	<string>Emacs editor integration, originally by Alexandru
+        Nedelcu, modified for Aquamacs.</string>
 	<key>name</key>
-	<string>Emacs</string>
+	<string>Aquamacs</string>
 	<key>uuid</key>
-	<string>06D52450-1E49-4CD5-B766-141746CFDA14</string>
+	<string>E4847795-E465-4D15-B435-364DD5FBADAE</string>
 </dict>
 </plist>

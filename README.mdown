@@ -1,22 +1,24 @@
-# Emacs integration with MailMate
+# Aquamacs integration with MailMate
 
-MailMate bundle allowing the usage of Emacs as a text editor for
-composing emails.
+MailMate bundle allowing the usage of Aquamacs as a text editor for
+composing emails.  This is a modification of Alexandru Nedelcu's
+`emacs.mmbundle`, which only works for standard Emacs, because the
+pathnames are hard-coded.
 
 While composing an email the action is available as:
 
-- Menu Item: Command → Emacs → Edit
+- Menu Item: Command → Aquamacs → Edit
 - Keyboard shortcut: Ctrl+Shift+O
 
 ## Installation
 
-This bundle isn't part of the offician distribution, so you can
+This bundle isn't part of the official distribution, so you can
 install it manually like this:
 
 ```
 mkdir -p ~/Library/Application\ Support/MailMate/Bundles 
 cd ~/Library/Application\ Support/MailMate/Bundles 
-git clone https://github.com/alexandru/emacs.mmbundle
+git clone https://github.com/rpgoldman/emacs.mmbundle
 ```
 
 # License

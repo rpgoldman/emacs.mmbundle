@@ -1,7 +1,7 @@
 {
 	name          = "Edit";
 	saveForEditing = 1;
-	command       = '#!/bin/sh\n"$MM_BUNDLE_SUPPORT/bin/edit" >/dev/null 2>&1 &';
+	command       = '#!/bin/bash\n"$MM_BUNDLE_SUPPORT/bin/edit" >/tmp/aquamacs-bundle.out 2>&1 &';
 	keyEquivalent = "^O";
-	uuid          = "A23DE5C1-34D0-4DB9-AEBE-B73B11787AFA";
+	uuid          = "D9348DB0-2332-40D4-A0CE-3F750275B622";
 }

@@ -1,35 +1,28 @@
-#!/bin/sh
+#!/bin/bash
 
 ##
 # Based on the Atom, MacVim and TextMate bundles 
 ##
+MM_EMACS="Aquamacs"
 
-PATH=$HOME/bin:~/Applications/Emacs.app/Contents/MacOS/bin:/Applications/Emacs.app/Contents/MacOS/bin:~/Applications/Emacs.app/Contents/MacOS:/Applications/Emacs.app/Contents/MacOS:/usr/local/bin:$PATH
+PATH=$HOME/bin:~/Applications/Aquamacs.app/Contents/MacOS/bin:/Applications/Aquamacs.app/Contents/MacOS/bin:~/Applications/Aquamacs.app/Contents/MacOS:/Applications/Aquamacs.app/Contents/MacOS:/usr/local/bin:$PATH
 
-cpath=$(which emacsclient)
-epath=$(which emacs)
+cpath=/usr/local/bin/emacsclient # this is where Aquamacs puts emacsclient
+epath=$(which Aquamacs)
 
 if [ ! -f "$(which lsof)" ]; then
     osascript -e 'tell application "System Events" to display dialog "Make sure you have `lsof` installed on your system." buttons "OK" default button 1 with title "Unable to locate system utility"' >/dev/null 2>&1 &
 elif [ ! -f "$cpath" ]; then
     osascript -e 'tell application "System Events" to display dialog "Make sure you have Emacs for Mac installed on your system, go to emacsformacosx.com" buttons "OK" default button 1 with title "Unable to locate Emacs"' >/dev/null 2>&1 &
 else
-    socket_file=$(lsof -c Emacs | grep server | tr -s " " | cut -d' ' -f8)
-
-    if [[ $socket_file == "" ]]; then
-        osascript -e "display notification \"This might take a couple of seconds, be patient...\" with title \"MailMate Editor\" subtitle \"Starting Emacs as a --daemon\""
-        # Tricking Emacs into thinking a tty is available
-        export TERM=xterm-color
-        script -q /dev/null "$epath" --daemon 1>/dev/null 2>&1
-        socket_file=$(lsof -c Emacs | grep server | tr -s " " | cut -d' ' -f8)
-    fi
+    socket_file=$(lsof -c Aquamacs | grep server | tr -s " " | cut -d' ' -f8)
 
     if [[ $socket_file == "" ]]; then
         osascript -e 'tell application "System Events" to display dialog "Start Emacs as a server (start-server) or as a --daemon" buttons "OK" default button 1 with title "Unable to locate Emacs server"' >/dev/null 2>&1
     else
-        client="$cpath -c -s \"$socket_file\""
+        client="$cpath -c " # -s \"$socket_file\""
         eval $client +$MM_LINE_NUMBER "$MM_EDIT_FILEPATH"
     fi
 
     osascript -e 'tell app "MailMate" to activate'
-fi
+fi 
